@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxe Confections - Exclusive Registration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="images/x-icon"
+    href="https://cdn.icon-icons.com/icons2/549/PNG/512/1455739570_Kitchen_Bold_Line_Color_Mix-01_icon-icons.com_53426.png">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+            color: #fff;
+        }
+        .container {
+            display: flex;
+            height: 100%;
+        }
+        .left-panel {
+            flex: 1;
+            background: url('https://images.unsplash.com/photo-1481391319762-47dff72954d9?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+            position: relative;
+        }
+        .left-panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+        }
+        .left-content {
+            position: absolute;
+            bottom: 50px;
+            left: 50px;
+            right: 50px;
+        }
+        .left-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin: 0;
+            color: #ffd700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .left-content p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            color: #fff;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        .right-panel {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50px;
+        }
+        .registration-form {
+            width: 100%;
+            max-width: 400px;
+        }
+        .form-group {
+            margin-bottom: 25px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #ffd700;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-bottom: 2px solid #ffd700;
+            background-color: transparent;
+            color: #fff;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: #fff;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #ffd700;
+            color: #1a1a1a;
+            border: none;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .submit-btn:hover {
+            background-color: #fff;
+            transform: translateY(-2px);
+        }
+        .logo {
+            position: absolute;
+            top: 30px;
+            left: 50px;
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: #ffd700;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <div class="logo">LUXE CONFECTIONS</div>
+            <div class="left-content">
+                <h1>Indulge in Luxury</h1>
+                <p>Join our exclusive circle of connoisseurs and experience the pinnacle of confectionery artistry.</p>
+            </div>
+        </div>
+        <div class="right-panel">
+            <form class="registration-form" id="registrationForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="submit-btn">Join the Elite</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('registrationForm');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+
+                // Here you would typically send this data to a server
+                console.log('Registration data:', { name, email, password });
+
+                // Immediately redirect to the main page
+                window.location.href = 'osnova.html';
+            });
+        });
+    </script>
+</body>
+</html>
