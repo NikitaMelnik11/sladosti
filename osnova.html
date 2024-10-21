@@ -239,6 +239,7 @@
         .product-image {
             height: 300px;
             overflow: hidden;
+            position: relative;
         }
 
         .product-image img {
@@ -288,16 +289,16 @@
         }
 
         .about {
+            padding: 150px 0;
             background-color: var(--primary-color);
             color: #fff;
-            padding: 150px 0;
         }
 
         .about-content {
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            gap: 80px;
+            align-items: center;
+            gap: 60px;
         }
 
         .about-text {
@@ -305,7 +306,8 @@
         }
 
         .about-text p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
             margin-bottom: 20px;
         }
 
@@ -316,77 +318,50 @@
 
         .about-image img {
             width: 100%;
+            height: auto;
             border-radius: 20px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
         }
 
         .about-image::before {
             content: '';
             position: absolute;
-            top: -30px;
-            left: -30px;
-            right: 30px;
-            bottom: 30px;
+            top: -20px;
+            left: -20px;
+            right: 20px;
+            bottom: 20px;
             border: 3px solid var(--secondary-color);
             border-radius: 20px;
             z-index: -1;
         }
 
-        .testimonials {
-            padding: 150px 0;
+        .about-btn {
+            display: inline-block;
+            margin-top: 20px;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .about-btn:hover {
             background-color: #fff;
-        }
-
-        .testimonial-slider {
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: center;
-            position: relative;
-        }
-
-        .testimonial {
-            padding: 40px;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-        }
-
-        .testimonial.active {
-            opacity: 1;
-            position: relative;
-        }
-
-        .testimonial-text {
-            font-size: 1.4rem;
-            font-style: italic;
-            margin-bottom: 30px;
-        }
-
-        .testimonial-author {
-            font-weight: 600;
             color: var(--primary-color);
-            font-size: 1.2rem;
         }
 
-        .testimonial-nav {
-            margin-top: 30px;
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-image {
+                margin-top: 40px;
+            }
+
+            .about-image::before {
+                display: none;
+            }
         }
 
-        .testimonial-nav button {
-            background: none;
-            border: none;
-            font-size: 2rem;
-            color: var(--primary-color);
-            cursor: pointer;
-            transition: color var(--transition-speed) ease;
-        }
-
-        .testimonial-nav button:hover {
-            color: var(--secondary-color);
-        }
 
         footer {
             background-color: var(--primary-color);
@@ -454,23 +429,18 @@
             opacity: 0.8;
         }
 
-        @media (max-width: 1200px) {
-            .product-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            }
-        }
-
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 3.5rem;
             }
 
-            .about-content {
-                flex-direction: column;
+            .product-grid {
+                grid-template-columns: 1fr;
             }
 
-            .about-text {
-                margin-bottom: 40px;
+            .about-content {
+                flex-direction: column;
+                align-items: center;
             }
 
             .footer-content {
@@ -502,6 +472,10 @@
                 font-size: 3rem;
             }
         }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 1s ease-out forwards;
+        }
     </style>
 </head>
 <body>
@@ -512,7 +486,6 @@
                 <a href="#home">Home</a>
                 <a href="#products">Products</a>
                 <a href="#about">About</a>
-                <a href="#testimonials">Testimonials</a>
                 <a href="#contact">Contact</a>
             </div>
         </nav>
@@ -520,7 +493,7 @@
 
     <main>
         <section id="home" class="hero">
-            <div  class="hero-content">
+            <div class="hero-content">
                 <h1>Indulge in Luxury</h1>
                 <p>Experience the finest handcrafted candies from around the world, meticulously created to delight your senses and elevate your moments of indulgence.</p>
                 <a href="#products" class="btn">Explore Our Collection</a>
@@ -533,7 +506,7 @@
                 <div class="product-grid">
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="https://cdn.leonardo.ai/users/a3fb5f9f-5b7b-421c-aa96-3d5de4d0da69/generations/b779350d-8ebd-49fe-bc30-b268bc87aeca/Leonardo_Lightning_XL_sweets_2.jpg" alt="Golden Truffles" loading="lazy">
+                            <img src="https://cdn.pixabay.com/photo/2017/01/04/19/41/candes-1952997_1280.jpg" alt="Golden Truffles" loading="lazy">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Golden Truffles</h3>
@@ -543,7 +516,7 @@
                     </div>
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="https://images.unsplash.com/photo-1599599810769-bcde5a160d32?auto=format&fit=crop&w=600&q=80" alt="Saffron Caramels" loading="lazy">
+                            <img src="https://cdn.leonardo.ai/users/a3fb5f9f-5b7b-421c-aa96-3d5de4d0da69/generations/b779350d-8ebd-49fe-bc30-b268bc87aeca/Leonardo_Lightning_XL_sweets_2.jpg?w=512" alt="Saffron Caramels"   loading="lazy">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Saffron Caramels</h3>
@@ -553,7 +526,7 @@
                     </div>
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="https://images.unsplash.com/photo-1582176604856-e824b4736522?auto=format&fit=crop&w=600&q=80" alt="Champagne Bonbons" loading="lazy">
+                            <img src="https://cdn.leonardo.ai/users/a3fb5f9f-5b7b-421c-aa96-3d5de4d0da69/generations/b779350d-8ebd-49fe-bc30-b268bc87aeca/Leonardo_Lightning_XL_sweets_1.jpg" alt="Champagne Bonbons" loading="lazy">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Champagne Bonbons</h3>
@@ -563,7 +536,7 @@
                     </div>
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="https://images.unsplash.com/photo-1600070338156-c39c9b594cd1?auto=format&fit=crop&w=600&q=80" alt="Platinum Pralines" loading="lazy">
+                            <img src="https://cdn.leonardo.ai/users/a3fb5f9f-5b7b-421c-aa96-3d5de4d0da69/generations/b779350d-8ebd-49fe-bc30-b268bc87aeca/Leonardo_Lightning_XL_sweets_0.jpg" alt="Platinum Pralines" loading="lazy">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Platinum Pralines</h3>
@@ -579,36 +552,13 @@
             <div class="container">
                 <h2 class="section-title">Our Story</h2>
                 <div class="about-content">
-                    <div class="about-text">
+                    <div class="about-text animate-fadeInUp">
                         <p>At Luxe Confections, we believe that every bite should be an extraordinary experience. Our master chocolatiers combine time-honored techniques with innovative flavors to create confections that are truly works of art.</p>
                         <p>Using only the finest ingredients sourced from around the globe, we craft each piece with meticulous attention to detail, ensuring a moment of pure indulgence with every taste. Our commitment to excellence and passion for confectionery artistry sets us apart in the world of luxury sweets.</p>
+                        <a href="#products" class="btn about-btn">Explore Our Creations</a>
                     </div>
-                    <div class="about-image">
+                    <div class="about-image animate-fadeInUp">
                         <img src="https://images.unsplash.com/photo-1505252585461-04db1eb84625?auto=format&fit=crop&w=600&q=80" alt="Chocolatier at work" loading="lazy">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="testimonials" class="testimonials">
-            <div class="container">
-                <h2 class="section-title">What Our Clients Say</h2>
-                <div class="testimonial-slider">
-                    <div class="testimonial active">
-                        <p class="testimonial-text">"Luxe Confections has redefined my expectations for fine chocolates. Each piece is a masterpiece of flavor and artistry."</p>
-                        <p class="testimonial-author">- Emily S., Chocolate Connoisseur</p>
-                    </div>
-                    <div class="testimonial">
-                        <p class="testimonial-text">"The attention to detail and quality of ingredients in every Luxe Confections product is truly remarkable. A taste of pure luxury."</p>
-                        <p class="testimonial-author">- Michael R., Food Critic</p>
-                    </div>
-                    <div class="testimonial">
-                        <p class="testimonial-text">"I've never experienced chocolates quite like these. Luxe Confections brings a whole new level of sophistication to confectionery."</p>
-                        <p class="testimonial-author">- Sarah L., Pastry Chef</p>
-                    </div>
-                    <div class="testimonial-nav">
-                        <button id="prevTestimonial">&larr;</button>
-                        <button id="nextTestimonial">&rarr;</button>
                     </div>
                 </div>
             </div>
@@ -623,7 +573,7 @@
                     <ul>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#products">Products</a></li>
-                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#about">About</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
@@ -672,59 +622,6 @@
             }
         });
 
-        // Improved testimonial slider
-        const testimonials = document.querySelectorAll('.testimonial');
-        const prevButton = document.getElementById('prevTestimonial');
-        const nextButton = document.getElementById('nextTestimonial');
-        let currentTestimonial = 0;
-
-        function showTestimonial(index) {
-            testimonials.forEach((testimonial, i) => {
-                if (i === index) {
-                    testimonial.classList.add('active');
-                } else {
-                    testimonial.classList.remove('active');
-                }
-            });
-        }
-
-        function nextTestimonial() {
-            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-            showTestimonial(currentTestimonial);
-        }
-
-        function prevTestimonial() {
-            currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
-            showTestimonial(currentTestimonial);
-        }
-
-        nextButton.addEventListener('click', nextTestimonial);
-        prevButton.addEventListener('click', prevTestimonial);
-
-        // Auto-rotate testimonials
-        setInterval(nextTestimonial, 5000);
-
-        // Lazy loading images
-        document.addEventListener("DOMContentLoaded", function() {
-            var lazyImages = [].slice.call(document.querySelectorAll("img[loading='lazy']"));
-
-            if ("IntersectionObserver" in window) {
-                let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
-                    entries.forEach(function(entry) {
-                        if (entry.isIntersecting) {
-                            let lazyImage = entry.target;
-                            lazyImage.src = lazyImage.dataset.src;
-                            lazyImage.removeAttribute("loading");
-                            lazyImageObserver.unobserve(lazyImage);
-                        }
-                    });
-                });
-
-                lazyImages.forEach(function(lazyImage) {
-                    lazyImageObserver.observe(lazyImage);
-                });
-            }
-        });
 
         // Add to cart animation
         document.querySelectorAll('.product-btn').forEach(button => {
@@ -746,8 +643,22 @@
                     50% { transform: scale(1.05); }
                     100% { transform: scale(1); }
                 }
+                @keyframes fadeInUp {
+                    from {
+                        opacity: 0;
+                        transform: translateY(20px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
             </style>
         `);
+
+        // Add this class to the about-text and about-image divs
+        document.querySelector('.about-text').classList.add('animate-fadeInUp');
+        document.querySelector('.about-image').classList.add('animate-fadeInUp');
     </script>
 </body>
 </html>
